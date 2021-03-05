@@ -50,6 +50,8 @@ public:
   void Initialize(bool measurementMode)
   {
     AudioOutputUnitStop(ioUnit);
+    AudioUnitUninitialize(ioUnit);
+
     AudioStreamBasicDescription preferredAsbd = asbdWithAudioFormat(2, 48000);
     OSStatus status = 0;
     if (status = AudioUnitSetProperty(ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &preferredAsbd, sizeof(preferredAsbd));
@@ -74,11 +76,17 @@ public:
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     NSError *error = nil;
     if (measurementMode)
+    {
       if (![audioSession setMode:AVAudioSessionModeMeasurement error:&error])
         throw "Setting measurement mode - Failed";
+    }
+    else if (![audioSession setMode:AVAudioSessionModeDefault error:&error])
+      throw "Setting measurement mode - Failed";
 
     if (![audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error] || ![audioSession setActive:true error:&error])
       throw "AudioSessionInitialize - Failed";
+
+    AudioOutputUnitStart(ioUnit);
   }
 
 private:
