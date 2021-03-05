@@ -1,10 +1,3 @@
-//
-//  AudioControllerBridgeBridge.m
-//  AudioDemo
-//
-//  Created by Tom Irving on 05/03/2021.
-//
-
 #import "AudioControllerBridgeBridge.h"
 #import "AudioControllerBridge.h"
 
