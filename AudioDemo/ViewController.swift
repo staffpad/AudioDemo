@@ -43,6 +43,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .lightGray
         self.addSubviews()
+        
+        self.audioControllerBridgeBridge.initialise(withMeasurementMode: self.measureModeSwitch.isOn)
     }
     
     private func addSubviews() {
