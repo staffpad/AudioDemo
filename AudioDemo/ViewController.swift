@@ -2,6 +2,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private let audioControllerBridgeBridge = AudioControllerBridgeBridge()
+    
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -65,5 +67,7 @@ class ViewController: UIViewController {
     
     @objc private func measureModeSwitchWasToggled(_ sender: UISwitch) {
         print("Measure mode isOn: \(sender.isOn)")
+        
+        self.audioControllerBridgeBridge.initialise(withMeasurementMode: sender.isOn)
     }
 }

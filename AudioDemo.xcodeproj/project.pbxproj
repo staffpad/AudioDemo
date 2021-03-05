@@ -13,6 +13,8 @@
 		E239FB1A25F259750099A1D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1925F259750099A1D0 /* ViewController.swift */; };
 		E239FB1F25F259760099A1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E239FB1E25F259760099A1D0 /* Assets.xcassets */; };
 		E239FB2225F259760099A1D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E239FB2025F259760099A1D0 /* LaunchScreen.storyboard */; };
+		E239FB3525F26DFF0099A1D0 /* AudioControllerBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = E239FB3425F26DFF0099A1D0 /* AudioControllerBridge.mm */; };
+		E239FB3A25F26EC00099A1D0 /* AudioControllerBridgeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = E239FB3925F26EC00099A1D0 /* AudioControllerBridgeBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,10 @@
 		E239FB1E25F259760099A1D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E239FB2125F259760099A1D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E239FB2325F259760099A1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E239FB3325F26DFF0099A1D0 /* AudioControllerBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioControllerBridge.h; sourceTree = "<group>"; };
+		E239FB3425F26DFF0099A1D0 /* AudioControllerBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioControllerBridge.mm; sourceTree = "<group>"; };
+		E239FB3825F26EC00099A1D0 /* AudioControllerBridgeBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioControllerBridgeBridge.h; sourceTree = "<group>"; };
+		E239FB3925F26EC00099A1D0 /* AudioControllerBridgeBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioControllerBridgeBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,10 @@
 			isa = PBXGroup;
 			children = (
 				71ADE61625F2656F006C2AD0 /* AudioController.mm */,
+				E239FB3325F26DFF0099A1D0 /* AudioControllerBridge.h */,
+				E239FB3425F26DFF0099A1D0 /* AudioControllerBridge.mm */,
+				E239FB3825F26EC00099A1D0 /* AudioControllerBridgeBridge.h */,
+				E239FB3925F26EC00099A1D0 /* AudioControllerBridgeBridge.m */,
 				E239FB1425F259750099A1D0 /* AudioDemo */,
 				E239FB1325F259750099A1D0 /* Products */,
 				71ADE61125F264EF006C2AD0 /* AudioDemo-Bridging-Header.h */,
@@ -141,7 +151,9 @@
 			files = (
 				E239FB1A25F259750099A1D0 /* ViewController.swift in Sources */,
 				E239FB1625F259750099A1D0 /* AppDelegate.swift in Sources */,
+				E239FB3A25F26EC00099A1D0 /* AudioControllerBridgeBridge.m in Sources */,
 				71ADE61725F2656F006C2AD0 /* AudioController.mm in Sources */,
+				E239FB3525F26DFF0099A1D0 /* AudioControllerBridge.mm in Sources */,
 				E239FB1825F259750099A1D0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
