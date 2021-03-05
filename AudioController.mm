@@ -47,17 +47,21 @@ public:
   {
     ioUnit = audioUnitCreate(kAudioUnitType_Output, kAudioUnitSubType_RemoteIO);
   }
+
+  // this is a very bare bones init code to play white noise
   void Initialize(bool measurementMode)
   {
     AudioOutputUnitStop(ioUnit);
     AudioUnitUninitialize(ioUnit);
 
+    // enabling stereo playback
     AudioStreamBasicDescription preferredAsbd = asbdWithAudioFormat(2, 48000);
     OSStatus status = 0;
     if (status = AudioUnitSetProperty(ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &preferredAsbd, sizeof(preferredAsbd));
         status != noErr)
       throw "AudioUnitSetProperty kAudioUnitProperty_StreamFormat - Failed ";
 
+    // enabling inputs
     const UInt32 inputEnabled = 1;
     if (status = AudioUnitSetProperty(ioUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, 1, &inputEnabled, sizeof(inputEnabled));
         status != noErr)
@@ -75,6 +79,9 @@ public:
 
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     NSError *error = nil;
+
+    // in our App, we need the mic's auto gain to be off. The only way I found this was possible is by setting the AVAudioSessionModeMeasurement option on the
+    // audio session --- this works for the inputs, but will turn App's sound mono
     if (measurementMode)
     {
       if (![audioSession setMode:AVAudioSessionModeMeasurement error:&error])
@@ -86,6 +93,14 @@ public:
     if (![audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error] || ![audioSession setActive:true error:&error])
       throw "AudioSessionInitialize - Failed";
 
+    {
+      AudioStreamBasicDescription outputASBD = {0};
+      UInt32 propSize = sizeof(outputASBD);
+      if (status = AudioUnitGetProperty(ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &outputASBD, &propSize); status != noErr)
+        throw "AudioUnitGetProperty kAudioUnitProperty_StreamFormat - Failed with OSStatus: ";
+      assert(outputASBD.mChannelsPerFrame == 2); // this reports back stereo... also in measurement mode
+    }
+
     AudioOutputUnitStart(ioUnit);
   }
 
@@ -96,7 +111,8 @@ private:
 inline OSStatus audioRenderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber,
                                     UInt32 inNumberFrames, AudioBufferList *ioData)
 {
-  // generate white noise
+  assert(ioData->mNumberBuffers == 2); // is always stereo
+  // generate white noise.
   for (int ch = 0; ch < ioData->mNumberBuffers; ch++)
   {
     float *ptr = (float *)ioData->mBuffers[ch].mData;
