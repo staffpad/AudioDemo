@@ -42,6 +42,7 @@ static AudioStreamBasicDescription asbdWithAudioFormat(int numChannels, double s
 
 class AudioController
 {
+public:
   AudioController()
   {
     ioUnit = audioUnitCreate(kAudioUnitType_Output, kAudioUnitSubType_RemoteIO);
@@ -72,8 +73,11 @@ class AudioController
 
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     NSError *error = nil;
-    if (![audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error] || ![audioSession setMode:AVAudioSessionModeMeasurement error:&error] ||
-        ![audioSession setActive:true error:&error])
+    if (measurementMode)
+      if (![audioSession setMode:AVAudioSessionModeMeasurement error:&error])
+        throw "Setting measurement mode - Failed";
+
+    if (![audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error] || ![audioSession setActive:true error:&error])
       throw "AudioSessionInitialize - Failed";
   }
 
@@ -81,8 +85,8 @@ private:
   AudioUnit ioUnit;
 };
 
-OSStatus audioRenderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber,
-                             UInt32 inNumberFrames, AudioBufferList *ioData)
+inline OSStatus audioRenderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber,
+                                    UInt32 inNumberFrames, AudioBufferList *ioData)
 {
   // generate white noise
   for (int ch = 0; ch < ioData->mNumberBuffers; ch++)

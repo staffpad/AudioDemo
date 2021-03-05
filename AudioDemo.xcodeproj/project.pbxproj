@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		71ADE61725F2656F006C2AD0 /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 71ADE61625F2656F006C2AD0 /* AudioController.mm */; };
+		71ADE61E25F270AA006C2AD0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ADE61D25F270AA006C2AD0 /* AVFoundation.framework */; };
+		71ADE62125F270B9006C2AD0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ADE62025F270B9006C2AD0 /* AudioToolbox.framework */; };
 		E239FB1625F259750099A1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1525F259750099A1D0 /* AppDelegate.swift */; };
 		E239FB1825F259750099A1D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1725F259750099A1D0 /* SceneDelegate.swift */; };
 		E239FB1A25F259750099A1D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1925F259750099A1D0 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		71ADE61125F264EF006C2AD0 /* AudioDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		71ADE61625F2656F006C2AD0 /* AudioController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
+		71ADE61D25F270AA006C2AD0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		71ADE62025F270B9006C2AD0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E239FB1225F259750099A1D0 /* AudioDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E239FB1525F259750099A1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E239FB1725F259750099A1D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,12 +42,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71ADE62125F270B9006C2AD0 /* AudioToolbox.framework in Frameworks */,
+				71ADE61E25F270AA006C2AD0 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71ADE61C25F270AA006C2AD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71ADE62025F270B9006C2AD0 /* AudioToolbox.framework */,
+				71ADE61D25F270AA006C2AD0 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E239FB0925F259750099A1D0 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +70,7 @@
 				E239FB1425F259750099A1D0 /* AudioDemo */,
 				E239FB1325F259750099A1D0 /* Products */,
 				71ADE61125F264EF006C2AD0 /* AudioDemo-Bridging-Header.h */,
+				71ADE61C25F270AA006C2AD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
