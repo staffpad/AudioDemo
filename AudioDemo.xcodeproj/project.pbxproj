@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71ADE61725F2656F006C2AD0 /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 71ADE61625F2656F006C2AD0 /* AudioController.mm */; };
 		E239FB1625F259750099A1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1525F259750099A1D0 /* AppDelegate.swift */; };
 		E239FB1825F259750099A1D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1725F259750099A1D0 /* SceneDelegate.swift */; };
 		E239FB1A25F259750099A1D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239FB1925F259750099A1D0 /* ViewController.swift */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71ADE61125F264EF006C2AD0 /* AudioDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		71ADE61625F2656F006C2AD0 /* AudioController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
 		E239FB1225F259750099A1D0 /* AudioDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E239FB1525F259750099A1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E239FB1725F259750099A1D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,8 +41,10 @@
 		E239FB0925F259750099A1D0 = {
 			isa = PBXGroup;
 			children = (
+				71ADE61625F2656F006C2AD0 /* AudioController.mm */,
 				E239FB1425F259750099A1D0 /* AudioDemo */,
 				E239FB1325F259750099A1D0 /* Products */,
+				71ADE61125F264EF006C2AD0 /* AudioDemo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +100,7 @@
 				TargetAttributes = {
 					E239FB1125F259750099A1D0 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -135,6 +141,7 @@
 			files = (
 				E239FB1A25F259750099A1D0 /* ViewController.swift in Sources */,
 				E239FB1625F259750099A1D0 /* AppDelegate.swift in Sources */,
+				71ADE61725F2656F006C2AD0 /* AudioController.mm in Sources */,
 				E239FB1825F259750099A1D0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +281,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZE93BN9HZ;
 				INFOPLIST_FILE = AudioDemo/Info.plist;
@@ -284,6 +293,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.staffpad.AudioDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AudioDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -294,6 +305,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZE93BN9HZ;
 				INFOPLIST_FILE = AudioDemo/Info.plist;
@@ -304,6 +317,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.staffpad.AudioDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AudioDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

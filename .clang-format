@@ -1,0 +1,43 @@
+﻿---
+BasedOnStyle: Google
+Standard: LS_Cpp17
+ColumnLimit: 160
+BraceWrapping:   
+  AfterClass:      true
+  AfterControlStatement: true
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  false
+  AfterObjCDeclaration: true
+  AfterStruct:     true
+  AfterUnion:      true
+  AfterExternBlock: false
+  BeforeCatch:     true
+  BeforeElse:      true
+  IndentBraces:    false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Custom # Attach
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignTrailingComments: true
+ReflowComments: true
+SpacesBeforeTrailingComments: 1
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Custom
+FixNamespaceComments: true
+IndentWidth: 2
+AccessModifierOffset: -2
+Standard: Auto
+UseTab: Never
+
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLambdasOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
+
+...
